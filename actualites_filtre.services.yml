@@ -1,0 +1,20 @@
+services:
+  parameter_bag:
+    class: Symfony\Component\DependencyInjection\ParameterBag\ParameterBag
+  actualites_filtre.controller:
+    class: Drupal\actualites_filtre\Controller\ActualitesController
+    arguments:
+      - '@entity_type.manager'
+      - '@renderer'
+    tags:
+      - { name: 'controller.service_arguments' }
+  actualites_filtre.vue_preprocess_event_subscriber:
+    class: Drupal\actualites_filtre\EventSubscriber\VuePreprocessEventSubscriber
+    arguments: ['@parameter_bag']
+    tags:
+      - { name: 'event_subscriber' }
+  views.argument.actualites_taxonomie_term:
+    class: Drupal\actualites_filtre\Plugin\views\argument\TaxonomieTermArgument
+    arguments: ['@parameter_bag']
+    tags:
+      - { name: views.argument }

@@ -1,0 +1,7 @@
+actualites_filtre.articles:
+  path: '/articles/{taxonomie_term}'
+  defaults:
+    _controller: '\Drupal\actualites_filtre\Controller\ActualitesController::afficherPageBase'
+  requirements:
+    _permission: 'access content'
+    taxonomie_term: '[a-zA-Z0-9_-]*'

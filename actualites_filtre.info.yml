@@ -1,0 +1,5 @@
+name: "Filtre d'Actualités"
+type: module
+description: 'Module pour filtrer les actualités par terme de taxonomie.'
+package: Custom
+core_version_requirement: ^9 || ^10
